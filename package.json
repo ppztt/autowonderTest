@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "online": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts\\start-online.ps1"
+  },
+  "dependencies": {
+    "@qoder-ai/qodercli": "^1.1.95"
+  }
+}

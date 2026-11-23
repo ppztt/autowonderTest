@@ -1,0 +1,73 @@
+#home {
+    .ant-layout{
+        .ant-layout-header {
+            color: #fff;
+        }
+        .ant-layout-sider {
+            box-sizing: border-box;
+            padding-top: 20px;
+            height: calc(100vh -  64px);
+            min-width: 140px !important;
+        }
+        .ant-layout-content {
+            box-sizing: border-box;
+            padding: 20px;
+            height: calc(100vh - 64px);
+        }
+        .routerView {
+            width: 100%;
+            height: calc(100% - 40px);
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            overflow: auto;
+        }
+        .layout-bg{
+            background-color: #fff;
+        }
+    }
+    .header-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .system-icon {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: url('../../assets//icon.svg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            margin-right: 10px;
+        }
+        .title {
+            color: #fff;
+        }
+        .userName {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            .avatar {
+                display: inline-block;
+                margin-right: 10px;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        }
+    }
+    .bread {
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+    }
+    .search-area{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+}
