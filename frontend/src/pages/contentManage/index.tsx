@@ -169,7 +169,7 @@ const ContentManage: React.FC = () => {
             </div>
             {/* position属性不能直接在变量里配置 */}
             <Spin spinning={isLoading}>
-                <Table columns={columns} dataSource={tableData} pagination={{ ...paginationProp, position: ['bottomLeft'] }} />
+                <Table rowKey="id" columns={columns} dataSource={tableData} pagination={{ ...paginationProp, position: ['bottomLeft'] }} />
             </Spin>
             <ContentModal
                 isEdit={isEdit}
