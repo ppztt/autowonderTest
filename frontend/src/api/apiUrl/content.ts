@@ -12,6 +12,12 @@ const Content = {
     },
     delContent: (id: number | string) => {
         return del(`${reUrl}/manage/article/del_article/${id}`)
+    },
+    // 资讯插图上传：不手工设置 Content-Type，交给浏览器自动带 multipart boundary
+    uploadArticleImage: (file: File) => {
+        const formData = new FormData()
+        formData.append('file', file)
+        return post(`${reUrl}/manage/article/upload_image`, formData)
     }
 }
 

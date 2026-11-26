@@ -1,8 +1,9 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useMemo, useState } from 'react'
 import { useSearchParams, useNavigate } from 'react-router-dom'
 import { Spin } from 'antd'
 import { UserOutlined, FieldTimeOutlined, ArrowLeftOutlined } from '@ant-design/icons'
 import $request from '@/api/api'
+import { isHtmlContent, sanitizeHtml } from '@/utils/richText'
 const EssayDetail: FC = () => {
     const navigate = useNavigate()
     const [info, setInfo] = useState<any>({})
@@ -23,6 +24,9 @@ const EssayDetail: FC = () => {
     const toBack = () => {
         navigate('/portal_center/home_tabs')
     }
+    const rawContent: string = info.content || ''
+    const isHtml = isHtmlContent(rawContent)
+    const safeHtml = useMemo(() => (isHtml ? sanitizeHtml(rawContent) : ''), [isHtml, rawContent])
     useEffect(() => {
         getDetailInfo()
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -36,7 +40,11 @@ const EssayDetail: FC = () => {
                     <span><UserOutlined />{info.creator}</span>
                     <span><FieldTimeOutlined />{info.create_time}</span>
                 </div>
-                <div className="content">{info.content}</div>
+                <div className="content">
+                    {isHtml
+                        ? <div className="rich-content" dangerouslySetInnerHTML={{ __html: safeHtml }} />
+                        : <div className="plain-content">{rawContent}</div>}
+                </div>
             </div>
         </Spin>
     )

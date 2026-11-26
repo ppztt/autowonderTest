@@ -83,6 +83,59 @@
     .content {
         margin-top: 20px;
         line-height: 28px;
+        word-break: break-word;
+
+        .plain-content {
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .rich-content {
+            word-break: break-word;
+
+            h1 { font-size: 32px; font-weight: 700; margin: 16px 0 10px; }
+            h2 { font-size: 26px; font-weight: 700; margin: 14px 0 8px; }
+            h3 { font-size: 22px; font-weight: 700; margin: 12px 0 8px; }
+            h4 { font-size: 18px; font-weight: 700; margin: 10px 0 6px; }
+            h5 { font-size: 16px; font-weight: 700; margin: 8px 0 6px; }
+
+            p { margin: 0 0 8px; }
+
+            ul,
+            ol {
+                padding-left: 28px;
+                margin: 0 0 8px;
+            }
+
+            ul { list-style: disc; }
+            ol { list-style: decimal; }
+
+            blockquote {
+                border-left: 4px solid #ccc;
+                padding-left: 12px;
+                margin: 8px 0;
+                color: #666;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            // Quill 对齐/缩进 class（详情容器没有 .ql-editor 作用域，需自行补齐）
+            .ql-align-center { text-align: center; }
+            .ql-align-right { text-align: right; }
+            .ql-align-justify { text-align: justify; }
+
+            .ql-indent-1 { padding-left: 2em; }
+            .ql-indent-2 { padding-left: 4em; }
+            .ql-indent-3 { padding-left: 6em; }
+            .ql-indent-4 { padding-left: 8em; }
+            .ql-indent-5 { padding-left: 10em; }
+            .ql-indent-6 { padding-left: 12em; }
+            .ql-indent-7 { padding-left: 14em; }
+            .ql-indent-8 { padding-left: 16em; }
+        }
     }
 }
 

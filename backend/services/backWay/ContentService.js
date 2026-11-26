@@ -29,7 +29,11 @@ const ContentService = {
             const sql = 'INSERT INTO knowledge SET ?'
             const typeSql = 'select * from complaint_type'
             const [typeList] = await db.query(typeSql)
-            params.complain_type_cn = typeList.find(item => item.id === params.complain_type).type_name
+            // 按 complaint_type 回填中文类型名（修复历史笔误 complain_type 导致的 undefined.type_name 异常）
+            const matchedType = typeList.find(item => Number(item.id) === Number(params.complaint_type))
+            if (matchedType) {
+                params.complaint_type_cn = matchedType.type_name
+            }
             const [result] = await db.query(sql, [params])
             // affectedRows的意思为影响到的表行数，大于0则表示新增成功
             if (result.affectedRows > 0) {
